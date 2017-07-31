@@ -1,4 +1,6 @@
-# react-starter
+# vantaa-job-board-react
+
+Starter kit for React + Axios
 
 Run dev server
 ```
