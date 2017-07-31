@@ -5,22 +5,26 @@ var api = require('../utils/api');
 function SelectField (props) {
   var fields = ['kaikki', 'Hallinto', 'Opetusala'];
   return (
-    <nav>
-      <div className="nav-wrapper">
-        <ul className="fields left hide-on-med-and-down">
-          {fields.map(function (fld) {
-            return (
-              <li
-                style={fld === props.selectedFields ? {color: '#d0021b'} : null}
-                onClick={props.onSelect.bind(null, fld)}
-                key={fld}>
-                  {fld}
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-    </nav>
+      <nav className="nav-extended">
+        <div className="nav-content">
+          <ul className="fields tabs tabs-transparent">
+              {fields.map(function (fld) {
+                return (
+                    <li 
+                        className="tab"
+                        onClick={props.onSelect.bind(null, fld)}
+                        key={fld}>
+                        <a 
+                            href="#"
+                            className={fld === props.selectedFields ? "active" : null}> 
+                          {fld}
+                        </a>
+                    </li>
+                )
+              })}
+          </ul>
+        </div>
+      </nav>
   )
 }
 
@@ -73,15 +77,15 @@ class Jobs extends React.Component {
   componentDidMount() {
     this.updateFields(this.state.selectedFields)
   }
-  updateFields(lang) {
+  updateFields(fld) {
     this.setState(function () {
       return {
-        selectedFields: lang,
+        selectedFields: fld,
         Openings: null
       }
     });
 
-    api.fetchJobOpenings(lang)
+    api.fetchJobOpenings(fld)
       .then(function (Openings) {
         this.setState(function () {
           return {
