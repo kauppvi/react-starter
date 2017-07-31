@@ -40,7 +40,7 @@ function OpeningGrid (props) {
                   </ul>
                 </div>
                 <div className="card-action">
-                  <a href="{opening.linkki}">Hae nyt!</a>
+                  <a href={opening.linkki}>Hae nyt!</a>
                 </div>
               </div>
             </div>

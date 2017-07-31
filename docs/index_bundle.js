@@ -10835,7 +10835,7 @@ function OpeningGrid(props) {
               { className: 'card-action' },
               React.createElement(
                 'a',
-                { href: '{opening.linkki}' },
+                { href: opening.linkki },
                 'Hae nyt!'
               )
             )
